@@ -6,11 +6,14 @@ namespace Awurth\Validator\ValueReader;
 
 final class ValueReaderRegistry implements ValueReaderRegistryInterface
 {
+    private iterable $valueReaders;
+
     /**
      * @param ValueReaderInterface[] $valueReaders
      */
-    public function __construct(private readonly iterable $valueReaders)
+    public function __construct(iterable $valueReaders)
     {
+        $this->valueReaders = $valueReaders;
     }
 
     public static function create(): self

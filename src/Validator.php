@@ -31,11 +31,15 @@ use Respect\Validation\Validatable;
  */
 final class Validator implements ValidatorInterface
 {
-    public function __construct(
-        private readonly ValidationFactoryInterface $validationFactory,
-        private readonly AsserterInterface $asserter,
-        private readonly ValueReaderRegistryInterface $valueReaderRegistry,
-    ) {
+    private ValidationFactoryInterface $validationFactory;
+    private AsserterInterface $asserter;
+    private ValueReaderRegistryInterface $valueReaderRegistry;
+
+    public function __construct(ValidationFactoryInterface $validationFactory, AsserterInterface $asserter, ValueReaderRegistryInterface $valueReaderRegistry,)
+    {
+        $this->asserter = $asserter;
+        $this->validationFactory = $validationFactory;
+        $this->valueReaderRegistry = $valueReaderRegistry;
     }
 
     /**

@@ -23,14 +23,19 @@ use Respect\Validation\Exceptions\NestedValidationException;
 
 final class Asserter implements AsserterInterface
 {
+    private ValidationFailureCollectionFactoryInterface $validationFailureCollectionFactory;
+    private ValidationFailureFactoryInterface $validationFailureFactory;
+    private array $messages = [];
     /**
      * @param array<string, string> $messages
      */
     public function __construct(
-        private readonly ValidationFailureCollectionFactoryInterface $validationFailureCollectionFactory,
-        private readonly ValidationFailureFactoryInterface $validationFailureFactory,
-        private readonly array $messages = [],
+        ValidationFailureCollectionFactoryInterface $validationFailureCollectionFactory,
+        ValidationFailureFactoryInterface $validationFailureFactory,
+        array $messages = [],
     ) {
+        $this->validationFailureFactory = $validationFailureFactory;
+        $this->validationFailureCollectionFactory = $validationFailureCollectionFactory;
     }
 
     /**

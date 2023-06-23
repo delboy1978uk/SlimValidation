@@ -23,10 +23,10 @@ use Awurth\Validator\ValidationInterface;
 final class ValidationFailure implements ValidationFailureInterface
 {
     public function __construct(
-        private readonly ValidationInterface $validation,
-        private readonly string $message,
-        private readonly mixed $invalidValue,
-        private readonly ?string $ruleName = null,
+        private ValidationInterface $validation,
+        private string $message,
+        private mixed $invalidValue,
+        private ?string $ruleName = null,
     ) {
     }
 

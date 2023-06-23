@@ -23,13 +23,13 @@ use Respect\Validation\Validatable;
 final class Validation implements ValidationInterface
 {
     public function __construct(
-        private readonly Validatable $rules,
-        private readonly ?string $property = null,
-        private readonly mixed $default = null,
-        private readonly ?string $message = null,
-        private readonly array $messages = [],
-        private readonly array $globalMessages = [],
-        private readonly mixed $context = null,
+        private Validatable $rules,
+        private ?string $property = null,
+        private mixed $default = null,
+        private ?string $message = null,
+        private array $messages = [],
+        private array $globalMessages = [],
+        private mixed $context = null,
     ) {
     }
 
